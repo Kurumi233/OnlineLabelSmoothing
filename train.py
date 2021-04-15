@@ -66,8 +66,8 @@ def loss_func(x, target, feat=None, training=False):
             criterion[l].train()
         else:
             criterion[l].eval()
-        if l in ce_based_loss:
-            loss = w * criterion[l](x, target)
+
+        loss = w * criterion[l](x, target)
         loss_value += loss
         loss_dict[l] = loss.detach().cpu().item()
 
