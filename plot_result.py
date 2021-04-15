@@ -27,6 +27,9 @@ def plot(res, savepath='.', name='loss', mode='train', best=None):
         plt.legend()
     if(isinstance(res, list)):
         pass
+    plt.xlabel('Epoch')
+    plt.ylabel(name.capitalize())
+    plt.grid()
     plt.savefig('{}/{}_{}'.format(savepath, mode, name), bbox_inches='tight')
     plt.close()
 
@@ -55,12 +58,14 @@ def plot_result(txt, savepath='.'):
                 train_acc = dict_append(train_acc, str2dict(acc[0]))
                 val_loss = dict_append(val_loss, str2dict(loss[1]))
                 val_acc = dict_append(val_acc, str2dict(acc[1]))
-        # print(train_loss)
-        # print(val_loss)
+
+        plot({'lr': lr}, savepath=savepath, name='lr')
         plot(train_loss, savepath=savepath)
+        plot(train_acc, savepath=savepath, name='acc')
         plot(val_loss, savepath=savepath, mode='test')
+        plot(val_acc, savepath=savepath, name='acc', mode='test')
 
 
 if __name__ == '__main__':
-    txt = './cifar100/resnet18_avg_linear_0_ce_ols/log.txt'
+    txt = 'log.txt'
     plot_result(txt)
