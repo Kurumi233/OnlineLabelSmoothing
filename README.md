@@ -48,7 +48,7 @@ amp: True # automatic mixed-precision training, this function is offered by pyto
 - use single gpu
 
 ```shell
-python train.py --amp -s cos --loss ls ols --loss_w 0.5 0.5
+python train.py --amp -s cos --loss ce ols --loss_w 0.5 0.5
 ```
 
 - use multi gpus single node
@@ -56,7 +56,7 @@ python train.py --amp -s cos --loss ls ols --loss_w 0.5 0.5
 ```shell
 CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.launch\
 --nproc_per_node=2 --master_addr 127.0.0.7 --master_port 23456\
-train.py --multi-gpus 1 -nw 20 --amp -s multi --loss ls ols --loss_w 0.5 0.5
+train.py --multi-gpus 1 -nw 20 --amp -s multi --loss ce ols --loss_w 0.5 0.5
 ```
 
 - use multi gpus multi nodes
