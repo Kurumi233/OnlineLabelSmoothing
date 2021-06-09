@@ -75,6 +75,8 @@ Although I used AMP(automatic mixed-precision) to speed up my training, it still
 | ResNet50 | CE | 250 | COS with 5 epochs warmup | 76.95 | 93.27 |
 | ResNet50 | 0.5\*CE+0.5\*OLS | 250 | Multi Step [75,150,225] | 77.27 | 93.47 |
 | ResNet50 | 0.5\*CE+0.5\*OLS | 250 | COS with 5 epochs warmup | 77.79 | 93.79 |
+| ResNet50 | LS(e=0.1) | 250 | COS with 5 epochs warmup | 77.62 | 93.75 |
+| ResNet50 | LS(e=0.2) | 250 | COS with 5 epochs warmup | 77.89 | 93.74 |
 
 
 #### Reference
